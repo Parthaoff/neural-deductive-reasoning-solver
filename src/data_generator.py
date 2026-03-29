@@ -7,9 +7,7 @@ import os
 import string
 from tqdm import tqdm
 
-# ==========================================================
 # CONFIGURATION
-# ==========================================================
 
 NUM_VARIABLES = 10
 VARIABLES = list(string.ascii_uppercase[:NUM_VARIABLES])
@@ -22,9 +20,7 @@ MAX_CHAIN_LENGTH = 5
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 OUTPUT_DIR = os.path.join(BASE_DIR, "..", "data")
 
-# ==========================================================
 # LOGIC ENGINE
-# ==========================================================
 
 def evaluate_expression(expr, assignment):
     """
@@ -75,9 +71,7 @@ def check_entailment(premises, query):
         return "Unknown"
 
 
-# ==========================================================
 # RANDOM LOGIC GENERATION
-# ==========================================================
 
 def random_literal():
     var = random.choice(VARIABLES)
@@ -150,9 +144,7 @@ def generate_sample():
     }
 
 
-# ==========================================================
 # DATASET CREATION
-# ==========================================================
 
 def generate_dataset(size):
     dataset = []
