@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday Medumm</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+
+    <style>
+        :root {
+            --bg-color: #0b0c10;
+            --text-main: #c5c6c7;
+            --accent: #66fcf1;
+            --accent-dim: #45a29e;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Starry Background Animation */
+        .stars {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1;
+            background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
+        }
+
+        /* Hero Section / Countdown */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            color: var(--accent);
+            text-shadow: 0 0 20px rgba(102, 252, 241, 0.5);
+            margin-bottom: 10px;
+            opacity: 0;
+            animation: fadeIn 2s forwards 0.5s;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            margin-bottom: 40px;
+            opacity: 0;
+            animation: fadeIn 2s forwards 1.5s;
+        }
+
+        /* Glassmorphism Button */
+        .btn {
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            color: #fff;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            animation: fadeIn 2s forwards 2.5s;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: rgba(102, 252, 241, 0.2);
+            border-color: var(--accent);
+            box-shadow: 0 0 15px var(--accent);
+            transform: translateY(-3px);
+        }
+
+        /* 3D Carousel Section */
+        .carousel-section {
+            display: none; /* Hidden until unlocked */
+            padding: 100px 0;
+            width: 100%;
+        }
+
+        .swiper {
+            width: 100%;
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .swiper-slide {
+            background-position: center;
+            background-size: cover;
+            width: 300px;
+            height: 400px;
+            border-radius: 15px;
+            box-shadow: 0 15px 50px rgba(0,0,0,0.5);
+            /* PLACEHOLDER IMAGES - Replace background-image URLs with your local files */
+            background-image: url('https://images.unsplash.com/photo-1520854221256-17451cc331bf?q=80&w=800&auto=format&fit=crop');
+        }
+
+        .swiper-slide:nth-child(2) { background-image: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?q=80&w=800&auto=format&fit=crop'); }
+        .swiper-slide:nth-child(3) { background-image: url('https://images.unsplash.com/photo-1478146896981-b80fe463b330?q=80&w=800&auto=format&fit=crop'); }
+
+        /* The Letter */
+        .letter-section {
+            display: none;
+            padding: 50px 20px 100px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .glass-card {
+            background: rgba(20, 22, 28, 0.6);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 50px;
+            max-width: 600px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 25px 45px rgba(0,0,0,0.5);
+            text-align: left;
+            line-height: 1.8;
+        }
+
+        .glass-card h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--accent);
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stars"></div>
+
+    <div class="hero" id="hero">
+        <h1>For Srishti</h1>
+        <div class="subtitle">A little something for April 15th</div>
+        <button class="btn" onclick="revealMagic()">Unlock Present ✨</button>
+    </div>
+
+    <div id="content" style="display: none;">
+        
+        <div class="carousel-section" id="carousel" style="display: block;">
+            <h2 style="text-align: center; font-family: 'Playfair Display', serif; color: var(--accent-dim);">Moments in Time</h2>
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                    <div class="swiper-slide"></div>
+                </div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+        <div class="letter-section">
+            <div class="glass-card">
+                <h2>Happy Birthday, Medumm.</h2>
+                <p>Hey Srishti,</p>
+                <p>I know we haven't spoken since February, and I want to respect that space. But there was absolutely no way I was going to let your birthday pass by like it was just another day.</p>
+                <p>I built this because you deserve something beautiful and unique today. You have this incredible light about you, and even from a distance, I wanted to do something to make you smile.</p>
+                <p>You don't need to reply to this, and there’s no pressure at all. I just genuinely hope you have the most amazing birthday, surrounded by people who realize how lucky they are to have you.</p>
+                <p>Wishing you all the best this year.</p>
+                <p style="text-align: right; font-style: italic; color: var(--accent); margin-top: 30px;">Yours,<br>Partha</p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    <script>
+        function revealMagic() {
+            // Hide hero, show content
+            document.getElementById('hero').style.display = 'none';
+            document.getElementById('content').style.display = 'block';
+
+            // Trigger Fireworks
+            var duration = 3 * 1000;
+            var animationEnd = Date.now() + duration;
+            var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0 };
+
+            function randomInRange(min, max) {
+              return Math.random() * (max - min) + min;
+            }
+
+            var interval = setInterval(function() {
+              var timeLeft = animationEnd - Date.now();
+
+              if (timeLeft <= 0) {
+                return clearInterval(interval);
+              }
+
+              var particleCount = 50 * (timeLeft / duration);
+              // Fire from multiple origins
+              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 } }));
+              confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 } }));
+            }, 250);
+
+            // Initialize 3D Swiper Carousel
+            var swiper = new Swiper(".mySwiper", {
+                effect: "coverflow",
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: "auto",
+                coverflowEffect: {
+                    rotate: 50,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows: true,
+                },
+                pagination: {
+                    el: ".swiper-pagination",
+                },
+                initialSlide: 1
+            });
+            
+            // Scroll to top of the revealed content gently
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+</html>
