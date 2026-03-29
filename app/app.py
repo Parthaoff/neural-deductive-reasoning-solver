@@ -16,9 +16,7 @@ from dataset import build_vocab, logic_tokenizer, LABEL_MAP_INV
 from visualization import extract_cls_attention, rank_premises
 from nlp_to_logic import SimpleMapper, rule_based_parser, clean_logic_output
 
-# ==========================================
 # PAGE CONFIG
-# ==========================================
 
 st.set_page_config(
     page_title="Neural Deductive Reasoning Solver",
@@ -26,16 +24,12 @@ st.set_page_config(
     layout="wide"
 )
 
-# ==========================================
 # DEVICE
-# ==========================================
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 MAX_LEN = 64
 
-# ==========================================
 # LOAD MODEL
-# ==========================================
 
 @st.cache_resource
 def load_logic_model():
@@ -65,9 +59,7 @@ def load_logic_model():
 model, vocab = load_logic_model()
 mapper = SimpleMapper()
 
-# ==========================================
-# SYMBOLIC FORWARD CHAINING (Bug Fix Core)
-# ==========================================
+# SYMBOLIC FORWARD CHAINING
 
 def extract_atoms(expr: str) -> set:
     """Extract all single-letter variable names from a logical expression."""
@@ -185,9 +177,7 @@ def symbolic_forward_chain(logical_premises: list, logical_query: str):
     return 'Unknown', steps
 
 
-# ==========================================
 # HELPER FUNCTIONS
-# ==========================================
 
 def convert_to_logic(sentence):
     """Convert English sentence to logical form."""
@@ -309,9 +299,7 @@ def hybrid_predict(logical_premises, logical_query):
     )
 
 
-# ==========================================
 # STREAMLIT UI
-# ==========================================
 
 st.title("🧠 Neural Deductive Reasoning Solver")
 st.markdown("*A Transformer-based Logical Inference System with Symbolic Grounding*")
@@ -325,9 +313,7 @@ with col2:
     else:
         st.info("💻 Running on CPU")
 
-# ==========================================
 # INPUT SECTION
-# ==========================================
 
 st.subheader("📝 Input")
 
@@ -363,9 +349,7 @@ input_mode = st.radio(
 
 st.markdown("---")
 
-# ==========================================
 # SOLVE BUTTON
-# ==========================================
 
 if st.button("🔮 Solve", type="primary", use_container_width=True):
 
