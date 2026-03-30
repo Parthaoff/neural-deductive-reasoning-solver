@@ -11,9 +11,8 @@ import os
 from dataset import LogicDataset, build_vocab
 from model import LogicTransformer
 
-# ==========================================
 # CONFIG
-# ==========================================
+
 
 BATCH_SIZE = 64
 EPOCHS = 30
@@ -24,9 +23,8 @@ MODEL_NAME = "best_model.pt"
 
 DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
-# ==========================================
+
 # PATH HANDLING
-# ==========================================
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 PROJECT_ROOT = os.path.abspath(os.path.join(BASE_DIR, ".."))
@@ -38,9 +36,8 @@ TRAIN_PATH = os.path.join(DATA_DIR, "train.json")
 TEST_PATH = os.path.join(DATA_DIR, "test.json")
 
 
-# ==========================================
+
 # TRAINING FUNCTION
-# ==========================================
 
 def train():
     print(f"Using device: {DEVICE}")
@@ -88,9 +85,9 @@ def train():
     best_acc = 0.0
 
     for epoch in range(EPOCHS):
-        # =====================
+        
         # TRAIN
-        # =====================
+        
         model.train()
         total_loss = 0
 
@@ -124,9 +121,9 @@ def train():
 
         avg_loss = total_loss / len(train_loader)
 
-        # =====================
+       
         # EVALUATION
-        # =====================
+        
         model.eval()
         correct = 0
         total = 0
