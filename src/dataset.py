@@ -5,9 +5,8 @@ import torch
 import string
 from torch.utils.data import Dataset
 
-# ==========================================================
+
 # VOCABULARY
-# ==========================================================
 
 VARIABLES = list(string.ascii_uppercase)
 SPECIAL_TOKENS = ["[PAD]", "[CLS]", "[SEP]"]
@@ -33,9 +32,9 @@ def get_inv_vocab():
     return {idx: token for token, idx in vocab.items()}
 
 
-# ==========================================================
+
 # TOKENIZER
-# ==========================================================
+
 
 def logic_tokenizer(expression):
     """
@@ -73,9 +72,7 @@ def logic_tokenizer(expression):
     return tokens
 
 
-# ==========================================================
 # DATASET CLASS
-# ==========================================================
 
 class LogicDataset(Dataset):
 
